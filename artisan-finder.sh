@@ -22,6 +22,6 @@ artisan() {
     if [ ${#directories[@]} -gt 0 ]; then
         php "$path" "$@"
     else
-        echo "Debe situarse en un proyecto Laravel para utilizar artisan" >&2
+        echo "You must be in a Laravel project in order to use artisan" >&2
     fi
 }
