@@ -1,10 +1,11 @@
-# artisan-finder
-Execute artisan from any Laravel subdirectory in Bash.
+Laravel Helpers for Bash
+========================
 
-# Installation
- - Append the script to your .bashrc:
- 
+Execute `artisan` from anywhere and use `gulp` locally.
+
+### Installation
+ - You can, for example, append the script to your .bashrc:
 ```bash
-cat artisan-finder.sh >> ~/.bashrc
+cat laravel-helpers.sh >> ~/.bashrc
 ```
  - Open a new terminal.
