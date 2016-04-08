@@ -1,7 +1,8 @@
 Laravel Helpers for Bash
 ========================
 
-Execute `artisan` from anywhere and use `gulp` locally.
+Execute `artisan`, `gulp` and `phpunit` from anywhere (within your project).  
+Also, you don't need `gulp` installed globally anymore.
 
 ### Installation
  - You can, for example, append the script to your .bashrc:
