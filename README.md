@@ -23,8 +23,8 @@ $ php root_of_your_project/artisan
 ```
 
 ```bash
-# now
-$ artisan # from anywhere within your project
+# now, from anywhere within your project
+$ artisan
 ```
 
 `gulp`
@@ -32,11 +32,11 @@ $ artisan # from anywhere within your project
 ```bash
 # previously
 $ npm install --global gulp # just once, but this won't be necessary anymore
-$ gulp # from anywhere within your project
+$ gulp
 ```
 
 ```bash
-# now
+# now, from anywhere within your project
 $ gulp
 ```
 
@@ -49,6 +49,6 @@ $ vendor/bin/phpunit
 ```
 
 ```bash
-# now
-$ phpunit # from anywhere within your project
+# now, from anywhere within your project
+$ phpunit
 ```
