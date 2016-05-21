@@ -1,21 +1,19 @@
 Laravel helpers for Bash
 ========================
 
-Day-to-day tasks made easier.
-
 It curently provides the following commands:
 
 - artisan  
-    Execute it from anywhere within your project.
+    Access it from anywhere within your project.
 
 - gulp  
-    Execute it from anywhere within your project and you won't need it installed globally anymore.
+    Access it from anywhere within your project and you won't need it installed globally anymore.
 
 - phpunit  
-    Execute it from anywhere within your project.
+    Access it from anywhere within your project.
 
 - homestead  
-    Execute it from anywhere.
+    Access `homestead` globally.
 
 
 ## Installation
@@ -26,21 +24,21 @@ You may source the file in your `.bashrc` (or in your current terminal to give i
 source laravel-bash-helpers.sh
 ```
 
-## Use
+## Usage
 
 ### artisan
 
 * previously
 
     ```bash
-    $ php root_of_your_project/artisan
+    $ php root_of_your_project/artisan ...
     ```
 
 * now
 
     ```bash
     # from anywhere within your project
-    $ artisan
+    $ artisan ...
     ```
 
 ### gulp
@@ -49,14 +47,14 @@ source laravel-bash-helpers.sh
 
     ```bash
     $ npm install --global gulp # just once, but this won't be necessary anymore
-    $ gulp
+    $ gulp ...
     ```
 
 * now
 
     ```bash
     # from anywhere within your project
-    $ gulp
+    $ gulp ...
     ```
 
 ### phpunit
@@ -65,14 +63,14 @@ source laravel-bash-helpers.sh
 
   ```bash
   $ cd root_of_your_project
-  $ vendor/bin/phpunit
+  $ vendor/bin/phpunit ...
   ```
 
 * now
 
   ```bash
   # from anywhere within your project
-  $ phpunit
+  $ phpunit ...
   ```
 
 ### homestead
@@ -81,12 +79,24 @@ source laravel-bash-helpers.sh
 
     ```bash
     $ cd ~/Homestead
-    $ vagrant <command>
+    $ vagrant  ...
     ```
 
 * now
 
     ```bash
     # from anywhere
-    $ homestead <command>
+    $ homestead  ...
     ```
+
+## Contact
+
+[Mail][mail]  
+[Twitter][twitter]
+
+## License
+
+**laravel-bash-helpers** is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+[mail]: mailto:abadiejuan@hotmail.com
+[twitter]: https://twitter.com/_whoan_
