@@ -1,54 +1,92 @@
 Laravel helpers for Bash
 ========================
 
-Execute `artisan`, `gulp` and `phpunit` from anywhere within your project and you won't need `gulp` installed globally anymore.
+Day-to-day tasks made easier.
+
+It curently provides the following commands:
+
+- artisan  
+    Execute it from anywhere within your project.
+
+- gulp  
+    Execute it from anywhere within your project and you won't need it installed globally anymore.
+
+- phpunit  
+    Execute it from anywhere within your project.
+
+- homestead  
+    Execute it from anywhere.
+
 
 ## Installation
 
-You may source the file and use it:
+You may source the file in your `.bashrc` (or in your current terminal to give it a try):
 
 ```bash
-source laravel-helpers.sh
+source laravel-bash-helpers.sh
 ```
-
-You can also source it in your `~/.bashrc` to install it permanently.
 
 ## Use
 
-`artisan`
+### artisan
 
-```bash
-# previously
-$ php root_of_your_project/artisan
-```
+* previously
 
-```bash
-# now, from anywhere within your project
-$ artisan
-```
+    ```bash
+    $ php root_of_your_project/artisan
+    ```
 
-`gulp`
+* now
 
-```bash
-# previously
-$ npm install --global gulp # just once, but this won't be necessary anymore
-$ gulp
-```
+    ```bash
+    # from anywhere within your project
+    $ artisan
+    ```
 
-```bash
-# now, from anywhere within your project
-$ gulp
-```
+### gulp
 
-`phpunit`
+* previously
 
-```bash
-# previously
-$ cd root_of_your_project
-$ vendor/bin/phpunit
-```
+    ```bash
+    $ npm install --global gulp # just once, but this won't be necessary anymore
+    $ gulp
+    ```
 
-```bash
-# now, from anywhere within your project
-$ phpunit
-```
+* now
+
+    ```bash
+    # from anywhere within your project
+    $ gulp
+    ```
+
+### phpunit
+
+* previously
+
+  ```bash
+  $ cd root_of_your_project
+  $ vendor/bin/phpunit
+  ```
+
+* now
+
+  ```bash
+  # from anywhere within your project
+  $ phpunit
+  ```
+
+### homestead
+
+* previously
+
+    ```bash
+    $ cd ~/Homestead
+    $ vagrant <command>
+    ```
+
+* now
+
+    ```bash
+    # from anywhere
+    $ homestead <command>
+    ```

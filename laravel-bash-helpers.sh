@@ -26,7 +26,6 @@ __find_file() {
     return 1
 }
 
-# call artisan from anywhere
 artisan() {
     local path
     if path=$(__find_file artisan); then
@@ -36,7 +35,6 @@ artisan() {
     fi
 }
 
-# no need gulp globally anymore
 gulp() {
     local path
     if path=$(__find_file node_modules); then
@@ -46,16 +44,15 @@ gulp() {
     fi
 }
 
-# call phpunit from anywhere
 phpunit() {
     local path
     if path=$(__find_file vendor); then
-        #( # uncomment this (and that*) if you dont wanna $OLDPWD changed. it executes the if body in a subshell, which is more expensive
-        cd "$path/.." 
-        vendor/bin/phpunit
-        cd - > /dev/null
-        #) # that*
+        ( cd "$path/.."  && vendor/bin/phpunit "$@")
     else
         echo "You must be in a project with phpunit in order to execute it" >&2
     fi
+}
+
+homestead() {
+    ( cd ~/Homestead && vagrant "$@" )
 }
