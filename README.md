@@ -21,7 +21,10 @@ It curently provides the following commands:
 You may source the file in your `.bashrc` (or in your current terminal to give it a try):
 
 ```bash
-source laravel-bash-helpers.sh
+git clone https://github.com/whoan/laravel-bash-helpers.git
+pathlbs=$PWD/laravel-bash-helpers/laravel-bash-helpers.sh
+echo "[ -f \"$pathlbs\" ] && source \"$pathlbs\"" >> ~/.bashrc  # install it in your .bashrc
+source "$pathlbs"  # make it available to the current terminal
 ```
 
 ## Usage
