@@ -1,37 +1,13 @@
 Laravel helpers for Bash
 ========================
 
-It curently provides the following commands:
-
-- artisan  
-    Access it from anywhere within your project.
-
-- gulp  
-    Access it from anywhere within your project and you won't need it installed globally anymore.
-
-- phpunit  
-    Access it from anywhere within your project.
-
-- homestead  
-    Access `homestead` globally.
-
-
-## Installation
-
-You may source the file in your `.bashrc` (or in your current terminal to give it a try):
-
-```bash
-git clone https://github.com/whoan/laravel-bash-helpers.git
-pathlbs=$PWD/laravel-bash-helpers/laravel-bash-helpers.sh
-echo "[ -f \"$pathlbs\" ] && source \"$pathlbs\"" >> ~/.bashrc  # install it in your .bashrc
-source "$pathlbs"  # make it available to the current terminal
-```
-
-## Usage
+## Commands
 
 ### artisan
 
-* previously
+Use `artisan` from anywhere within your project.
+
+* before
 
     ```bash
     $ php root_of_your_project/artisan ...
@@ -40,57 +16,94 @@ source "$pathlbs"  # make it available to the current terminal
 * now
 
     ```bash
-    # from anywhere within your project
-    $ artisan ...
+    $ artisan
     ```
 
 ### gulp
 
-* previously
+Access it from anywhere within your project and you won't need it installed globally anymore.
+
+* before
 
     ```bash
     $ npm install --global gulp # just once, but this won't be necessary anymore
-    $ gulp ...
+    $ gulp
     ```
 
 * now
 
     ```bash
-    # from anywhere within your project
-    $ gulp ...
+    $ gulp
     ```
 
 ### phpunit
 
-* previously
+Access it from anywhere within your project.
+
+* before
 
   ```bash
   $ cd root_of_your_project
-  $ vendor/bin/phpunit ...
+  $ vendor/bin/phpunit
   ```
 
 * now
 
   ```bash
-  # from anywhere within your project
-  $ phpunit ...
+  $ phpunit
   ```
 
 ### homestead
 
-* previously
+Access `homestead` globally.
+
+* before
 
     ```bash
     $ cd ~/Homestead
-    $ vagrant  ...
+    $ vagrant
     ```
 
 * now
 
     ```bash
-    # from anywhere
-    $ homestead  ...
+    $ homestead
     ```
+
+### tinker
+
+Use tinker as a standalone command.
+
+* before
+
+    ```bash
+    $ artisan tinker
+    ```
+
+* now
+
+    ```bash
+    $ tinker
+    ```
+
+### loot
+
+`cd` to the root of the laravel project.
+
+```bash
+$ loot
+```
+
+## Installation
+
+You may source the file in your `.bashrc` (or in your current terminal to give it a try):
+
+```bash
+git clone https://github.com/whoan/laravel-bash-helpers.git
+pathlbs=$PWD/laravel-bash-helpers/laravel-bash-helpers.sh
+echo "test -f \"$pathlbs\"  && source \"$_\"" >> ~/.bashrc  # install it in your .bashrc
+source "$_"  # make it available to the current terminal
+```
 
 ## Contact
 

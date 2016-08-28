@@ -56,3 +56,16 @@ phpunit() {
 homestead() {
     ( cd ~/Homestead && vagrant "$@" )
 }
+
+tinker() {
+    artisan tinker "$@"
+}
+
+loot() {
+    local path
+    if path=$(__find_file artisan); then
+        cd ${path%/*}
+    else
+        echo "You must be in a Laravel project in order to use this command" >&2
+    fi
+}
