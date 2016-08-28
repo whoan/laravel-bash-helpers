@@ -61,6 +61,10 @@ tinker() {
     artisan tinker "$@"
 }
 
+serve() {
+    artisan serve "$@"
+}
+
 loot() {
     local path
     if path=$(__find_file artisan); then

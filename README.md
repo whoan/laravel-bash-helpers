@@ -72,7 +72,7 @@ Access `homestead` globally.
 
 ### tinker
 
-Use tinker as a standalone command.
+Use `tinker` as a standalone command.
 
 * before
 
@@ -84,6 +84,22 @@ Use tinker as a standalone command.
 
     ```bash
     $ tinker
+    ```
+
+### serve
+
+Use `serve` as a standalone command.
+
+* before
+
+    ```bash
+    $ artisan serve
+    ```
+
+* now
+
+    ```bash
+    $ serve
     ```
 
 ### loot
