@@ -31,7 +31,7 @@ artisan() {
     if path=$(__find_file artisan); then
         php "$path" "$@"
     else
-        echo "You must be in a Laravel project in order to use artisan" >&2
+        echo "You must be in a Laravel/Lumen project in order to use artisan" >&2
     fi
 }
 
@@ -70,6 +70,23 @@ loot() {
     if path=$(__find_file artisan); then
         cd ${path%/*}
     else
-        echo "You must be in a Laravel project in order to use this command" >&2
+        echo "You must be in a Laravel/Lumen project in order to use this command" >&2
+    fi
+}
+
+linit() {
+    local path
+    if path=$(__find_file artisan); then
+        sudo chmod -R ug+w storage
+        test -d bootstrap/cache && sudo chmod -R ug+w $_
+        if [ ! -f .env ]; then
+            if ! cp .env.example .env 2> /dev/null; then
+                echo "You should create your environment file (.env)" >&2
+            else
+                artisan key:generate 2> /dev/null >&2 || echo "NOTICE: You must set the key by hand in your .env" >&2
+            fi
+        fi
+    else
+        echo "You must be in a Laravel/Lumen project in order to use this command" >&2
     fi
 }

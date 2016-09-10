@@ -1,7 +1,16 @@
-Laravel helpers for Bash
-========================
+Laravel/Lumen helpers for Bash
+==============================
 
 ## Commands
+
+* artisan
+* gulp
+* phpunit
+* homestead
+* tinker
+* serve
+* loot
+* linit
 
 ### artisan
 
@@ -108,6 +117,14 @@ Use `serve` as a standalone command.
 
 ```bash
 $ loot
+```
+
+### linit
+
+Initialize your project. It sets directory permissions and creates your *.env* file if necessary.
+
+```bash
+$ linit
 ```
 
 ## Installation
