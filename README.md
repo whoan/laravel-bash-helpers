@@ -11,6 +11,9 @@ Laravel/Lumen helpers for Bash
 * serve
 * loot
 * linit
+* mmigrations
+* mseeders
+* mmodels
 
 ### artisan
 
@@ -125,6 +128,16 @@ Initialize your project. It sets directory permissions and creates your *.env* f
 
 ```bash
 $ linit
+```
+
+### mmigrations, mseeders, mmodels
+
+`make` multiple migrations, seeders, and models respectively.
+
+```bash
+mmigrations table1 [table2 [...]]
+mseeders Models1 [Models2 [...]]
+mmodels Model1 [Model2 [...]]
 ```
 
 ## Installation

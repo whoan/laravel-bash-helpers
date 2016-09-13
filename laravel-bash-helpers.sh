@@ -90,3 +90,25 @@ linit() {
         echo "You must be in a Laravel/Lumen project in order to use this command" >&2
     fi
 }
+
+mmigrations() {
+    : ${1:?You must specify the table/s names}
+    for table in "${@}"; do
+        artisan make:migration --create="$table" "create_${table}"
+        sleep 1 # the migration names use the datetime
+    done
+}
+
+mseeders() {
+    : ${1:?You must specify the seeder/s names}
+    for seeder in "${@}"; do
+        artisan make:seeder "$seeder"Seeder
+    done
+}
+
+mmodels() {
+    : ${1:?You must specify the model/s names}
+    for model in "${@}"; do
+        artisan make:model "$model"
+    done
+}
