@@ -89,7 +89,7 @@ Use `tinker` as a standalone command.
 * before
 
     ```bash
-    $ artisan tinker
+    $ php artisan tinker
     ```
 
 * now
@@ -105,7 +105,7 @@ Use `serve` as a standalone command.
 * before
 
     ```bash
-    $ artisan serve
+    $ php artisan serve
     ```
 
 * now
