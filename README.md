@@ -1,6 +1,19 @@
 Laravel/Lumen helpers for Bash
 ==============================
 
+It provides useful commands for your Laravel development.
+
+## Installation
+
+You may source the file in your `.bashrc` (or in your current terminal to give it a try):
+
+```bash
+git clone https://github.com/whoan/laravel-bash-helpers.git
+pathlbs=$PWD/laravel-bash-helpers/laravel-bash-helpers.sh
+echo "test -f \"$pathlbs\"  && source \"$pathlbs\"" >> ~/.bashrc  # install it in your .bashrc
+source "$pathlbs"  # make it available to the current terminal
+```
+
 ## Commands
 
 * artisan
@@ -14,6 +27,7 @@ Laravel/Lumen helpers for Bash
 * mmigrations
 * mseeders
 * mmodels
+* mcontrollers
 
 ### artisan
 
@@ -130,25 +144,15 @@ Initialize your project. It sets directory permissions and creates your *.env* f
 $ linit
 ```
 
-### mmigrations, mseeders, mmodels
+### mmigrations, mseeders, mmodels, mcontrollers
 
 `make` multiple migrations, seeders, and models respectively.
 
 ```bash
 mmigrations table1 [table2 [...]]
-mseeders Models1 [Models2 [...]]
+mseeders Seeder1 [Seeder2 [...]]
 mmodels Model1 [Model2 [...]]
-```
-
-## Installation
-
-You may source the file in your `.bashrc` (or in your current terminal to give it a try):
-
-```bash
-git clone https://github.com/whoan/laravel-bash-helpers.git
-pathlbs=$PWD/laravel-bash-helpers/laravel-bash-helpers.sh
-echo "test -f \"$pathlbs\"  && source \"$_\"" >> ~/.bashrc  # install it in your .bashrc
-source "$_"  # make it available to the current terminal
+mcontrollers Controller1 [Controller2 [...]]
 ```
 
 ## Contact

@@ -77,7 +77,7 @@ loot() {
 linit() {
     local path
     if path=$(__find_file artisan); then
-        sudo chmod -R ug+w storage
+        sudo chmod -R ugo+w storage
         test -d bootstrap/cache && sudo chmod -R ug+w $_
         if [ ! -f .env ]; then
             if ! cp .env.example .env 2> /dev/null; then
@@ -92,7 +92,7 @@ linit() {
 }
 
 mmigrations() {
-    : ${1:?You must specify the table/s names}
+    : ${1:?You must specify the table(s) name(s)}
     for table in "${@}"; do
         artisan make:migration --create="$table" "create_${table}"
         sleep 1 # the migration names use the datetime
@@ -100,15 +100,22 @@ mmigrations() {
 }
 
 mseeders() {
-    : ${1:?You must specify the seeder/s names}
+    : ${1:?You must specify the seeder(s) name(s)}
     for seeder in "${@}"; do
         artisan make:seeder "$seeder"Seeder
     done
 }
 
 mmodels() {
-    : ${1:?You must specify the model/s names}
+    : ${1:?You must specify the model(s) name(s)}
     for model in "${@}"; do
         artisan make:model "$model"
+    done
+}
+
+mcontrollers() {
+    : ${1:?You must specify the controller(s) name(s)}
+    for controller in "${@}"; do
+        artisan make:controller "$controller"
     done
 }
