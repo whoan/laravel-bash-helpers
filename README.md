@@ -16,22 +16,22 @@ source "$pathlbs"  # make it available to the current terminal
 
 ## Commands
 
-* artisan
-* gulp
-* phpunit
-* homestead
-* tinker
-* serve
-* loot
-* linit
-* mmigrations
-* mseeders
-* mmodels
-* mcontrollers
+* **artisan**: Use it from anywhere within your project.
+* **gulp**: Use it from anywhere within your project and you won't need it installed globally anymore.
+* **phpunit**: Use it from anywhere within your project.
+* **homestead**: Access `homestead` globally.
+* **tinker**: Use it from anywhere within your project.
+* **serve**: Use it from anywhere within your project.
+* **loot**: `cd` to the root of the laravel project.
+* **linit**: Initialize your project. It sets directory permissions and creates your *.env* file if necessary.
+* **mmigrations**: `make` multiple migrations.
+* **mseeders**: `make` multiple seeders.
+* **mmodels**: `make` multiple models.
+* **mcontrollers**: `make` multiple controllers.
+
+## Examples
 
 ### artisan
-
-Use `artisan` from anywhere within your project.
 
 * before
 
@@ -46,8 +46,6 @@ Use `artisan` from anywhere within your project.
     ```
 
 ### gulp
-
-Access it from anywhere within your project and you won't need it installed globally anymore.
 
 * before
 
@@ -64,8 +62,6 @@ Access it from anywhere within your project and you won't need it installed glob
 
 ### phpunit
 
-Access it from anywhere within your project.
-
 * before
 
   ```bash
@@ -80,8 +76,6 @@ Access it from anywhere within your project.
   ```
 
 ### homestead
-
-Access `homestead` globally.
 
 * before
 
@@ -98,8 +92,6 @@ Access `homestead` globally.
 
 ### tinker
 
-Use `tinker` as a standalone command.
-
 * before
 
     ```bash
@@ -113,8 +105,6 @@ Use `tinker` as a standalone command.
     ```
 
 ### serve
-
-Use `serve` as a standalone command.
 
 * before
 
@@ -130,23 +120,17 @@ Use `serve` as a standalone command.
 
 ### loot
 
-`cd` to the root of the laravel project.
-
 ```bash
 $ loot
 ```
 
 ### linit
 
-Initialize your project. It sets directory permissions and creates your *.env* file if necessary.
-
 ```bash
 $ linit
 ```
 
 ### mmigrations, mseeders, mmodels, mcontrollers
-
-`make` multiple migrations, seeders, and models respectively.
 
 ```bash
 mmigrations table1 [table2 [...]]
