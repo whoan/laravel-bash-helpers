@@ -36,7 +36,7 @@ source "$pathlbs"  # make it available to the current terminal
 * before
 
     ```bash
-    $ php root_of_your_project/artisan ...
+    $ php root_of_your_project/artisan
     ```
 
 * now
