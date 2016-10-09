@@ -1,7 +1,7 @@
 Laravel/Lumen helpers for Bash
 ==============================
 
-It provides useful commands for your Laravel development.
+Useful commands for your Laravel development.
 
 ## Installation
 
