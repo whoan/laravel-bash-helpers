@@ -2,7 +2,7 @@
 __explode() {
     local string=${1:?You must provide the string to explode}
     local delimiter=${2:?You must provide the delimiter}
-    local -n out_array=${3:?You must provide an array to store the result}
+    declare -n out_array=${3:?You must provide an array to store the result}
     unset out_array[*]
     while [[ "$string" =~ $delimiter ]]; do
         out_array+=( "${string%%$delimiter*}" )
