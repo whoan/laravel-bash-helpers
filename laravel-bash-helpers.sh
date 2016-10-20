@@ -2,13 +2,14 @@
 __explode() {
     local string=${1:?You must provide the string to explode}
     local delimiter=${2:?You must provide the delimiter}
-    declare -n out_array=${3:?You must provide an array to store the result}
-    unset out_array[*]
+    out_array=${3:?You must provide an array to store the result}
+    unset $out_array[*]
+    local i=0
     while [[ "$string" =~ $delimiter ]]; do
-        out_array+=( "${string%%$delimiter*}" )
+        read ${out_array}[$((i++))] <<< "${string%%$delimiter*}"
         string="${string#*$delimiter}"
     done
-    out_array+=( "$string" )
+    [ "$string" ] && read ${out_array}[$i] <<< "$string"
 }
 
 __find_file() {
