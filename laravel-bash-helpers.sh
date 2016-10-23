@@ -103,7 +103,7 @@ mmigrations() {
 mseeders() {
     : ${1:?You must specify the seeder(s) name(s)}
     for seeder in "${@}"; do
-        artisan make:seeder "$seeder"Seeder
+        artisan make:seeder "${seeder%Seeder}"Seeder
     done
 }
 
@@ -117,6 +117,6 @@ mmodels() {
 mcontrollers() {
     : ${1:?You must specify the controller(s) name(s)}
     for controller in "${@}"; do
-        artisan make:controller "$controller"
+        artisan make:controller "${controller%Controller}"Controller
     done
 }
