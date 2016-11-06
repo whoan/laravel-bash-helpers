@@ -1,7 +1,7 @@
 Laravel/Lumen helpers for Bash
 ==============================
 
-Useful commands for your Laravel development.
+Useful commands for your Laravel/Lumen development.
 
 ## Installation
 
@@ -9,134 +9,44 @@ You may source the file in your `.bashrc` (or in your current terminal to give i
 
 ```bash
 git clone https://github.com/whoan/laravel-bash-helpers.git
-pathlbs=$PWD/laravel-bash-helpers/laravel-bash-helpers.sh
-echo "test -f \"$pathlbs\"  && source \"$pathlbs\"" >> ~/.bashrc  # install it in your .bashrc
-source "$pathlbs"  # make it available to the current terminal
+_path=$PWD/laravel-bash-helpers/laravel-bash-helpers.sh
+echo "test -f \"$_path\"  && source \"$_path\"" >> ~/.bashrc  # install it in your .bashrc
+source "$_path"  # make it available to the current terminal
 ```
 
 ## Commands
 
-* **artisan**: Use it from anywhere within your project.
-* **gulp**: Use it from anywhere within your project and you won't need it installed globally anymore.
-* **phpunit**: Use it from anywhere within your project.
-* **homestead**: Access `homestead` globally.
-* **tinker**: Use it from anywhere within your project.
-* **serve**: Use it from anywhere within your project.
-* **loot**: `cd` to the root of the laravel project.
-* **linit**: Initialize your project. It sets directory permissions and creates your *.env* file if necessary.
-* **mmigrations**: `make` multiple migrations.
-* **mseeders**: `make` multiple seeders.
-* **mmodels**: `make` multiple models.
-* **mcontrollers**: `make` multiple controllers.
-
-## Examples
-
-### artisan
-
-* before
-
-    ```bash
-    $ php root_of_your_project/artisan
-    ```
-
-* now
-
-    ```bash
-    $ artisan
-    ```
-
-### gulp
-
-* before
-
-    ```bash
-    $ npm install --global gulp # just once, but this won't be necessary anymore
-    $ gulp
-    ```
-
-* now
-
-    ```bash
-    $ gulp
-    ```
-
-### phpunit
-
-* before
-
-  ```bash
-  $ cd root_of_your_project
-  $ vendor/bin/phpunit
-  ```
-
-* now
-
-  ```bash
-  $ phpunit
-  ```
-
-### homestead
-
-* before
-
-    ```bash
-    $ cd ~/Homestead
-    $ vagrant
-    ```
-
-* now
-
-    ```bash
-    $ homestead
-    ```
-
-### tinker
-
-* before
-
-    ```bash
-    $ php artisan tinker
-    ```
-
-* now
-
-    ```bash
-    $ tinker
-    ```
-
-### serve
-
-* before
-
-    ```bash
-    $ php artisan serve
-    ```
-
-* now
-
-    ```bash
-    $ serve
-    ```
-
-### loot
-
 ```bash
-$ loot
+artisan # php $project_root/artisan
+gulp    # (you won't need it installed globally anymore)
+loot    # cd $project_root
+phpunit # cd $project_root && vendor/bin/phpunit
+phpspec # cd $project_root && vendor/bin/phpspec
+tinker  # php $project_root/artisan tinker
+serve   # php $project_root/artisan serve
+linit   # (sets directory permissions and creates your *.env* file if necessary)
+homestead # cd ~/Homestead && vagrant
 ```
 
-### linit
+### `make` multiple migrations, seeders, models and controllers at once
 
 ```bash
-$ linit
+mmigrations  # usage: mmigrations table1 [table2 [...]]
+mseeders     # usage: mseeders Seeder1 [Seeder2 [...]]
+mmodels      # usage: mmodels Model1 [Model2 [...]]
+mcontrollers # usage: mcontrollers Controller1 [Controller2 [...]]
 ```
 
-### mmigrations, mseeders, mmodels, mcontrollers
+### Others
+
+> These were extracted from [laravel/homestead][laravel-homestead]
 
 ```bash
-mmigrations table1 [table2 [...]]
-mseeders Seeder1 [Seeder2 [...]]
-mmodels Model1 [Model2 [...]]
-mcontrollers Controller1 [Controller2 [...]]
+..  # cd ..
+... # cd ../..
+h   # cd ~
+c   # clear
+art # artisan
 ```
 
 ## Contact
@@ -150,3 +60,4 @@ mcontrollers Controller1 [Controller2 [...]]
 
 [mail]: mailto:abadiejuan@hotmail.com
 [twitter]: https://twitter.com/_whoan_
+[laravel-homestead]: https://github.com/laravel/homestead

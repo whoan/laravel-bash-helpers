@@ -54,6 +54,15 @@ phpunit() {
     fi
 }
 
+phpspec() {
+    local path
+    if path=$(__find_file vendor); then
+        ( cd "$path/.."  && vendor/bin/phpspec "$@")
+    else
+        echo "You must be in a project with phpspec in order to execute it" >&2
+    fi
+}
+
 homestead() {
     ( cd ~/Homestead && vagrant "$@" )
 }
@@ -120,3 +129,9 @@ mcontrollers() {
         artisan make:controller "${controller%Controller}"Controller
     done
 }
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias h='cd ~'
+alias c='clear'
+alias art=artisan
