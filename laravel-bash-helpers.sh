@@ -27,6 +27,15 @@ __find_file() {
     return 1
 }
 
+__filter_by_regex() {
+    : ${1:?You must provide a pattern}
+    local pattern=$1
+    shift
+    for word in "$@"; do
+        [[ "$word" =~ $pattern ]] && echo "$word"
+    done
+}
+
 artisan() {
     local path
     if path=$(__find_file artisan); then
@@ -102,31 +111,39 @@ linit() {
 }
 
 mmigrations() {
-    : ${1:?You must specify the table(s) name(s)}
-    for table in "${@}"; do
-        artisan make:migration --create="$table" "create_${table}"
+    : ${1:?You must provide the table(s) name(s)}
+    options=( $(__filter_by_regex ^- "$@") )
+    entities=( $(__filter_by_regex ^[^-] "$@") )
+    for table in "${entities[@]}"; do
+        artisan make:migration "${options[@]}" --create="$table" "create_${table}"
         sleep 1 # the migration names use the datetime
     done
 }
 
 mseeders() {
-    : ${1:?You must specify the seeder(s) name(s)}
-    for seeder in "${@}"; do
-        artisan make:seeder "${seeder%Seeder}"Seeder
+    : ${1:?You must provide the seeder(s) name(s)}
+    options=( $(__filter_by_regex ^- "$@") )
+    entities=( $(__filter_by_regex ^[^-] "$@") )
+    for seeder in "${entities[@]}"; do
+        artisan make:seeder "${options[@]}" "${seeder%Seeder}"Seeder
     done
 }
 
 mmodels() {
-    : ${1:?You must specify the model(s) name(s)}
-    for model in "${@}"; do
-        artisan make:model "$model"
+    : ${1:?You must provide the model(s) name(s)}
+    options=( $(__filter_by_regex ^- "$@") )
+    entities=( $(__filter_by_regex ^[^-] "$@") )
+    for model in "${entities[@]}"; do
+        artisan make:model "${options[@]}" "$model"
     done
 }
 
 mcontrollers() {
-    : ${1:?You must specify the controller(s) name(s)}
-    for controller in "${@}"; do
-        artisan make:controller "${controller%Controller}"Controller
+    : ${1:?You must provide the controller(s) name(s)}
+    options=( $(__filter_by_regex ^- "$@") )
+    entities=( $(__filter_by_regex ^[^-] "$@") )
+    for controller in "${entities[@]}"; do
+        artisan make:controller "${options[@]}" "${controller%Controller}"Controller
     done
 }
 
