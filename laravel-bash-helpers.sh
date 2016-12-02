@@ -147,6 +147,25 @@ mcontrollers() {
     done
 }
 
+createdb() {
+    which mysql > /dev/null || return
+    loot
+    DB_DATABASE=$(sed -nr 's/DB_DATABASE=([^ \t]+)/\1/p' .env)
+    DB_USERNAME=$(sed -nr 's/DB_USERNAME=([^ \t]+)/\1/p' .env)
+    DB_PASSWORD=$(sed -nr 's/DB_PASSWORD=([^ \t]+)/\1/p' .env)
+    : ${DB_DATABASE:?You should set DB_DATABASE in .env}
+    : ${DB_USERNAME:?You should set DB_USERNAME in .env}
+    : ${DB_PASSWORD:?You should set DB_PASSWORD in .env}
+
+    echo "Mysql root:" >&2
+    mysql -u root -p <<EOF
+        CREATE DATABASE IF NOT EXISTS \`$DB_DATABASE\` DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_unicode_ci;
+        CREATE USER IF NOT EXISTS '$DB_USERNAME'@'%' IDENTIFIED BY '$DB_PASSWORD';
+        GRANT ALL PRIVILEGES ON \`$DB_DATABASE\`.* TO '$DB_USERNAME'@'%';
+        FLUSH PRIVILEGES;
+EOF
+}
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias h='cd ~'

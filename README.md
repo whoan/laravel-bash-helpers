@@ -7,14 +7,17 @@ Useful commands for your Laravel/Lumen development.
 
 ```bash
 artisan # replaces: php $project_root/artisan
-gulp    # you won't need it installed globally anymore
+linit   # sets directory permissions and creates your *.env* file if necessary
 loot    # replaces: cd $project_root
 phpunit # replaces: cd $project_root && vendor/bin/phpunit
 phpspec # replaces: cd $project_root && vendor/bin/phpspec
 tinker  # replaces: php $project_root/artisan tinker
 serve   # replaces: php $project_root/artisan serve
-linit   # sets directory permissions and creates your *.env* file if necessary
+gulp    # you won't need it installed globally anymore
 homestead # replaces: cd ~/Homestead && vagrant
+
+**New**
+createdb # creates the database and username set in .env, locally
 ```
 
 ### `make` multiple migrations, seeders, models and controllers at once
