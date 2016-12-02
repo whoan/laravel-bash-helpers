@@ -17,7 +17,7 @@ gulp    # you won't need it installed globally anymore
 homestead # replaces: cd ~/Homestead && vagrant
 
 **New**
-createdb # creates the database and username set in .env, locally
+createdb # creates the database and username as set in .env, on your host
 ```
 
 ### `make` multiple migrations, seeders, models and controllers at once
@@ -58,6 +58,12 @@ echo "test -f \"$_path\"  && source \"$_path\"" >> ~/.bashrc  # install it in yo
 source "$_path"  # make it available to the current terminal
 ```
 
+## Plans
+
+- Create stubs for controllers, models, etc.. so you can use `make:something` in Lumen.
+- Make a command to set an nginx server block (I have already done it but I need to adapt it to more platforms).
+- Make a command similar to [lambo][lambo].
+
 ## Contact
 
 [Mail][mail]  
@@ -67,6 +73,7 @@ source "$_path"  # make it available to the current terminal
 
 **laravel-bash-helpers** is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
+[lambo]: https://github.com/tightenco/lambo
 [mail]: mailto:juaneabadie@gmail.com
 [twitter]: https://twitter.com/_whoan_
 [laravel-homestead]: https://github.com/laravel/homestead
