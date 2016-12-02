@@ -97,7 +97,7 @@ linit() {
     local path
     if path=$(__find_file artisan); then
         sudo chmod -R ugo+w storage
-        test -d bootstrap/cache && sudo chmod -R ugo+w $_
+        test -d bootstrap/cache && sudo chmod -R ugo+w bootstrap/cache
         if [ ! -f .env ]; then
             if ! cp .env.example .env 2> /dev/null; then
                 echo "You should create your environment file (.env)" >&2

@@ -24,6 +24,12 @@ mmigrations  # usage: mmigrations table1 [table2 [...]]
 mseeders     # usage: mseeders Seeder1 [Seeder2 [...]]
 mmodels      # usage: mmodels Model1 [Model2 [...]]
 mcontrollers # usage: mcontrollers Controller1 [Controller2 [...]]
+
+# You can also use options:
+mcontrollers --resource Controller1 [Controller2 [...]]
+# And these sentences are the same (suffix appended if not provided):
+mcontrollers aController
+mcontrollers a
 ```
 
 ### Others
