@@ -17,7 +17,7 @@ gulp    # you won't need it installed globally anymore
 homestead # replaces: cd ~/Homestead && vagrant
 
 **New**
-createdb # creates the database and username as set in .env, on your host
+createdb # creates the database and username as set in .env
 ```
 
 ### `make` multiple migrations, seeders, models and controllers at once
