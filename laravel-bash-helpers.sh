@@ -115,7 +115,11 @@ mmigrations() {
     options=( $(__filter_by_regex ^- "$@") )
     entities=( $(__filter_by_regex ^[^-] "$@") )
     for table in "${entities[@]}"; do
-        artisan make:migration "${options[@]}" --create="$table" "create_${table}"
+        if [[ "${options[*]}" =~ "table=" ]]; then
+            artisan make:migration "${options[@]}" "alter_${table#alter_}"
+        else
+            artisan make:migration "${options[@]}" --create="$table" "create_${table}"
+        fi
         sleep 1 # the migration names use the datetime
     done
 }
