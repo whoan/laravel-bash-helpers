@@ -38,38 +38,42 @@ __filter_by_regex() {
 
 artisan() {
     local path
-    if path=$(__find_file artisan); then
-        php "$path" "$@"
-    else
+    if ! path=$(__find_file artisan); then
         echo "You must be in a Laravel/Lumen project in order to use artisan" >&2
+        return 1
     fi
+
+    php "$path" "$@"
 }
 
 gulp() {
     local path
-    if path=$(__find_file node_modules); then
-        "$path/gulp/bin/gulp.js" "$@"
-    else
-        echo "You must install gulp locally in order to use it (npm install gulp)" >&2
+    if ! path=$(__find_file node_modules); then
+        echo "You must install gulp locally in order to use it (yarn add gulp)" >&2
+        return 1
     fi
+
+    "$path/gulp/bin/gulp.js" "$@"
 }
 
 phpunit() {
     local path
-    if path=$(__find_file vendor); then
-        ( cd "$path/.."  && vendor/bin/phpunit "$@")
-    else
+    if ! path=$(__find_file vendor); then
         echo "You must be in a project with phpunit in order to execute it" >&2
+        return 1
     fi
+
+    ( cd "$path/.."  && vendor/bin/phpunit "$@" )
 }
 
 phpspec() {
     local path
-    if path=$(__find_file vendor); then
-        ( cd "$path/.."  && vendor/bin/phpspec "$@")
-    else
+    if ! path=$(__find_file vendor); then
         echo "You must be in a project with phpspec in order to execute it" >&2
+        return 1
     fi
+
+    ( cd "$path/.."  && vendor/bin/phpspec "$@" )
 }
 
 homestead() {
@@ -86,27 +90,29 @@ serve() {
 
 loot() {
     local path
-    if path=$(__find_file artisan); then
-        cd ${path%/*}
-    else
+    if ! path=$(__find_file artisan); then
         echo "You must be in a Laravel/Lumen project in order to use this command" >&2
+        return 1
     fi
+
+    cd ${path%/*}
 }
 
 linit() {
     local path
-    if path=$(__find_file artisan); then
-        sudo chmod -R ugo+w storage
-        test -d bootstrap/cache && sudo chmod -R ugo+w bootstrap/cache
-        if [ ! -f .env ]; then
-            if ! cp .env.example .env 2> /dev/null; then
-                echo "You should create your environment file (.env)" >&2
-            else
-                artisan key:generate 2> /dev/null >&2 || echo "NOTICE: You must set the key by hand in your .env" >&2
-            fi
-        fi
-    else
+    if ! path=$(__find_file artisan); then
         echo "You must be in a Laravel/Lumen project in order to use this command" >&2
+        return 1
+    fi
+
+    sudo chmod -R ugo+w storage
+    test -d bootstrap/cache && sudo chmod -R ugo+w bootstrap/cache
+    if [ ! -f .env ]; then
+        if ! cp .env.example .env 2> /dev/null; then
+            echo "You should create your environment file (.env)" >&2
+        else
+            artisan key:generate 2> /dev/null >&2 || echo "NOTICE: You must set the key by hand in your .env" >&2
+        fi
     fi
 }
 
