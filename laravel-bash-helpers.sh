@@ -76,18 +76,6 @@ phpspec() {
     ( cd "$path/.."  && vendor/bin/phpspec "$@" )
 }
 
-homestead() {
-    ( cd ~/Homestead && vagrant "$@" )
-}
-
-tinker() {
-    artisan tinker "$@"
-}
-
-serve() {
-    artisan serve "$@"
-}
-
 loot() {
     local path
     if ! path=$(__find_file artisan); then
@@ -174,6 +162,18 @@ createdb() {
         GRANT ALL PRIVILEGES ON \`$DB_DATABASE\`.* TO '$DB_USERNAME'@'%';
         FLUSH PRIVILEGES;
 EOF
+}
+
+homestead() {
+    ( cd ~/Homestead && vagrant "$@" )
+}
+
+tinker() {
+    artisan tinker "$@"
+}
+
+serve() {
+    artisan serve "$@"
 }
 
 alias ..="cd .."
