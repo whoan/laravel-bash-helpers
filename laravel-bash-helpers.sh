@@ -180,6 +180,10 @@ godb() {
     mysql "-u$DB_USERNAME" "-p$DB_PASSWORD" "$DB_HOST" "$DB_DATABASE" "$@"
 }
 
+query() {
+    godb -e "$@"
+}
+
 homestead() {
     ( cd ~/Homestead && vagrant "$@" )
 }
