@@ -164,6 +164,21 @@ createdb() {
 EOF
 }
 
+godb() {
+    which mysql > /dev/null || return
+    loot
+    DB_HOST=$(sed -nr 's/DB_HOST=([^ \t]+)/\1/p' .env)
+    DB_DATABASE=$(sed -nr 's/DB_DATABASE=([^ \t]+)/\1/p' .env)
+    DB_USERNAME=$(sed -nr 's/DB_USERNAME=([^ \t]+)/\1/p' .env)
+    DB_PASSWORD=$(sed -nr 's/DB_PASSWORD=([^ \t]+)/\1/p' .env)
+    : ${DB_DATABASE:?You should set DB_DATABASE in .env}
+    : ${DB_USERNAME:?You should set DB_USERNAME in .env}
+    : ${DB_PASSWORD:?You should set DB_PASSWORD in .env}
+
+    [[ $DB_HOST ]] && DB_HOST="-h$DB_HOST" || DB_HOST=""
+    mysql "-u$DB_USERNAME" "-p$DB_PASSWORD" "$DB_HOST" "$DB_DATABASE" "$@"
+}
+
 homestead() {
     ( cd ~/Homestead && vagrant "$@" )
 }
