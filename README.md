@@ -5,22 +5,42 @@ Useful commands for your Laravel/Lumen development.
 
 ## Commands
 
-```bash
-artisan # replaces: php $project_root/artisan
-linit   # sets directory permissions and creates your *.env* file if necessary
-loot    # replaces: cd $project_root
-phpunit # replaces: cd $project_root && vendor/bin/phpunit
-phpspec # replaces: cd $project_root && vendor/bin/phpspec
-tinker  # replaces: php $project_root/artisan tinker
-serve   # replaces: php $project_root/artisan serve
-gulp    # you won't need it installed globally anymore
-homestead # replaces: cd ~/Homestead && vagrant
+`artisan`: call the command wherever you are. It's like doing: `php $project_root/artisan`
 
-**New**
-createdb # creates the database and username as set in .env
-```
+`linit`: set directory permissions and create your *.env* file if necessary. Useful when you start a new project
 
-### `make` multiple migrations, seeders, models and controllers at once
+`loot`: go to the root of your laravel project (where your *.env* stays)
+
+`phpunit`: call the command wherever you are. It's like doing: `cd $project_root && vendor/bin/phpunit`
+
+`phpspec`: call the command wherever you are. It's like doing: `cd $project_root && vendor/bin/phpspec`
+
+`tinker`: call the command wherever you are. It's like doing: `php $project_root/artisan tinker`
+
+`serve`: call the command wherever you are. It's like doing: `php $project_root/artisan serve`
+
+`gulp`: call the command wherever you are, and you don't need it installed globally anymore
+
+`homestead`: call the command wherever you are. It's like doing: `cd ~/Homestead && vagrant`
+
+### Mysql commands
+
+These command read the information from the *.env* file, so you won't have to type your username/password each time you use them.
+
+You need to set the following variables beforehand:
+
+- `DB_HOST` (optional)
+- `DB_DATABASE`
+- `DB_USERNAME`
+- `DB_PASSWORD`
+
+`createdb`: create the database `$DB_DATABASE`, automatically.
+
+`godb`: open a mysql console ready to execute commands
+
+`query`: execute a query from your shell. eg: `query "show tables"`
+
+### Make multiple migrations, seeders, models and controllers at once
 
 ```bash
 mmigrations  # usage: mmigrations table1 [table2 [...]]
@@ -37,7 +57,7 @@ mcontrollers a
 
 ### Others
 
-> These were extracted from [laravel/homestead][laravel-homestead]
+These were extracted from [laravel/homestead][laravel-homestead]:
 
 ```bash
 ..  # cd ..
@@ -58,12 +78,6 @@ echo "test -f \"$_path\"  && source \"$_path\"" >> ~/.bashrc  # install it in yo
 source "$_path"  # make it available to the current terminal
 ```
 
-## Plans
-
-- Create stubs for controllers, models, etc.. so you can use `make:something` in Lumen.
-- Make a command to set an nginx server block (I have already done it but I need to adapt it to more platforms).
-- Make a command similar to [lambo][lambo].
-
 ## Contact
 
 [Mail][mail]  
@@ -73,7 +87,6 @@ source "$_path"  # make it available to the current terminal
 
 **laravel-bash-helpers** is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
-[lambo]: https://github.com/tightenco/lambo
 [mail]: mailto:juaneabadie@gmail.com
 [twitter]: https://twitter.com/_whoan_
 [laravel-homestead]: https://github.com/laravel/homestead
