@@ -25,9 +25,7 @@ Useful commands for your Laravel/Lumen development.
 
 ### Mysql commands
 
-These command read the information from the *.env* file, so you won't have to type your username/password each time you use them.
-
-You need to set the following variables beforehand:
+You need to set the following variables beforehand in your *.env* file:
 
 - `DB_HOST` (optional)
 - `DB_DATABASE`
