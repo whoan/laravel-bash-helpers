@@ -79,12 +79,10 @@ source "$_path"  # make it available to the current terminal
 ## Contact
 
 [Mail][mail]  
-[Twitter][twitter]
 
 ## License
 
 **laravel-bash-helpers** is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
 [mail]: mailto:juaneabadie@gmail.com
-[twitter]: https://twitter.com/_whoan_
 [laravel-homestead]: https://github.com/laravel/homestead
